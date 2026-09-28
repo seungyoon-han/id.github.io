@@ -1,0 +1,35 @@
+		*{
+ margin : 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+	margin: 20px;
+	font-family: serif;
+	color: black;
+}
+
+img {
+	margin-right: 10px;
+	dislpay: block;
+	width: 100px
+}
+
+dic {
+	height: 20px;
+}
+
+a {
+	color: limegreen;
+}
+
+li {
+	margin-left: 30px;
+}
+
+
+
+
+@media screen and (max-width: 704px) {
+}
