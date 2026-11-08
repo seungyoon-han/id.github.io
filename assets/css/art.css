@@ -1,0 +1,473 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+
+/* 기본 설정 */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: #fff;
+  color: #111;
+  font-family: "Times New Roman", "Nanum Myeongjo", serif;
+  font-weight: 400;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* 전체 레이아웃 */
+.layout {
+  display: flex;
+  height: 100dvh;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+/* 왼쪽 메뉴 */
+.sidebar {
+  width: 390px;
+  flex: 0 0 390px;
+  min-width: 0;
+  border-right: 1px solid #777;
+  padding: 48px 0 24px 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h1 {
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+  margin: 0 20px 42px 0;
+}
+
+/* ART / VIDEO 공통 메뉴 높이 */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.menu button {
+  position: relative;
+  width: 100%;
+  height: 42px;
+  flex: 0 0 42px;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 4px 15px 4px 0;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.menu button.active,
+.menu button:hover {
+  font-weight: 700;
+}
+
+.menu button.active::after,
+.work-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #777;
+}
+
+/* 홈 버튼 */
+.home-stone {
+  margin-top: auto;
+  display: block;
+  width: 55px;
+  height: 65px;
+  text-decoration: none;
+}
+
+.home-stone img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.fallback-stone {
+  display: block;
+  color: #aaa;
+  font-size: 40px;
+}
+
+/* 가운데 작품 목차 */
+.work-list {
+  flex: 0 0 0;
+  width: 0;
+  min-width: 0;
+  overflow: hidden;
+  border-right: 0;
+  transition: flex-basis 0.3s ease, width 0.3s ease;
+}
+
+.layout.works-mode .work-list {
+  width: 390px;
+  flex-basis: 390px;
+  border-right: 1px solid #777;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 0 35px 60px;
+}
+
+.work-list-inner {
+  padding-top: var(--menu-baseline-top, 238px);
+}
+
+.work-group {
+  margin: 0 0 46px;
+}
+
+.work-group h2 {
+  font-size: 23px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.25;
+  margin: 0 0 20px;
+}
+
+.work-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 3px 15px 5px 0;
+  margin: 0 0 11px;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+
+.work-item:hover,
+.work-item.active {
+  font-weight: 700;
+}
+
+/* 오른쪽 작품 영역 */
+.work-content {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.layout.works-mode .work-content {
+  padding: var(--content-top, 145px) 55px 60px;
+}
+
+.layout.info-mode .work-content {
+  padding: var(--menu-baseline-top, 238px) 60px 60px;
+}
+
+.work-content:empty {
+  padding: 0 !important;
+}
+
+/* 작품 이미지 */
+.artwork-figure {
+  margin: 0 0 42px;
+}
+
+.artwork-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.artwork-caption {
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.image-placeholder {
+  min-height: 250px;
+  background: #eee;
+  display: grid;
+  place-items: center;
+  color: #888;
+  text-align: center;
+  padding: 20px;
+}
+
+/* 작가노트와 CV */
+.text-section {
+  max-width: 900px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.text-section h2 {
+  font-size: 23px;
+  font-style: italic;
+  font-weight: 400;
+  margin: 0 0 30px;
+}
+
+.text-section h3 {
+  font-size: 17px;
+  font-weight: 400;
+  margin: 0 0 42px;
+}
+
+.text-section p {
+  margin: 0 0 26px;
+}
+
+.cv-block {
+  margin: 0 0 65px;
+}
+
+.contact-heading {
+  margin-top: 70px !important;
+}
+
+/* 버튼 포커스 */
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #4b9eff;
+  outline-offset: 2px;
+}
+
+/* 비디오 사이트 색상과 글꼴 */
+body.video {
+  background: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+body.video .sidebar,
+body.video .layout.works-mode .work-list {
+  border-color: #999;
+}
+
+body.video .sidebar h1 {
+  font-weight: 300;
+}
+
+body.video .menu button {
+  font-weight: 300;
+}
+
+body.video .menu button.active,
+body.video .menu button:hover,
+body.video .work-item.active,
+body.video .work-item:hover {
+  font-weight: 700;
+}
+
+body.video .work-group h2,
+body.video .text-section h2 {
+  font-weight: 300;
+}
+
+body.video .menu button.active::after,
+body.video .work-item.active::after {
+  border-color: #aaa;
+}
+
+body.video .image-placeholder {
+  background: #181818;
+  color: #aaa;
+}
+
+/* 중간 화면 */
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 270px;
+    flex-basis: 270px;
+    padding-left: 25px;
+  }
+
+  .sidebar h1 {
+    font-size: 29px;
+  }
+
+  .menu button {
+    font-size: 20px;
+  }
+
+  .layout.works-mode .work-list {
+    width: 290px;
+    flex-basis: 290px;
+    padding-left: 25px;
+  }
+
+  .layout.works-mode .work-content {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .layout.info-mode .work-content {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
+
+/* 작은 화면 */
+@media (max-width: 680px) {
+  .sidebar {
+    width: 175px;
+    flex-basis: 175px;
+    padding: 26px 0 18px 15px;
+  }
+
+  .sidebar h1 {
+    font-size: 19px;
+    margin-bottom: 38px;
+  }
+
+  .menu {
+    gap: 12px;
+  }
+
+  .menu button {
+    height: 34px;
+    flex-basis: 34px;
+    font-size: 15px;
+  }
+
+  .layout.works-mode .work-list {
+    width: 190px;
+    flex-basis: 190px;
+    padding-left: 15px;
+  }
+
+  .work-group h2 {
+    font-size: 18px;
+  }
+
+  .work-item {
+    font-size: 13px;
+  }
+
+  .layout.works-mode .work-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .layout.info-mode .work-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .text-section {
+    font-size: 13px;
+  }
+
+  .home-stone {
+    width: 38px;
+    height: 46px;
+  }
+}
+
+/* 작가노트 */
+body:not(.video) .artist-statement {
+  max-width: 900px;
+}
+
+/* 제목과 본문 사이 간격 */
+body:not(.video) .artist-statement h3 {
+  margin-bottom: 58px;
+}
+
+/* 작가노트 본문 */
+body:not(.video) .statement-body {
+  font-size: 14px;
+  line-height: 1.85;
+  padding-left: 55px;
+  padding-right: 25px;
+}
+
+/* 문단 간격 */
+body:not(.video) .statement-body p {
+  margin: 0 0 26px;
+  text-indent: 5em;
+}
+
+/* 작성일 - 오른쪽 아래 */
+body:not(.video) .statement-date {
+  margin-top: 32px;
+  margin-bottom: 0;
+  text-align: right;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* ART 사이트 - 글씨 크기 및 자간 */
+body:not(.video) .sidebar h1 {
+  font-size: 42px;
+}
+
+body:not(.video) .menu button {
+  font-size: 27px;
+  letter-spacing: 0.5px;
+}
+
+/* ART 사이트 - CV 간격 */
+
+/* 이름과 학력 사이 */
+body:not(.video) .cv-block p:first-child {
+  margin-bottom: 48px;
+}
+
+/* 학력과 학교명 사이 */
+body:not(.video) .cv-block p:nth-child(2) {
+  margin-bottom: 12px;
+}
+
+/* 한국어 CV와 영어 CV 사이 */
+body:not(.video) .cv-block {
+  margin-bottom: 80px;
+}
+
+/* Contact 제목과 내용 간격 */
+body:not(.video) .contact-heading {
+  margin-top: 80px !important;
+  margin-bottom: 36px;
+}
+
+/* Contact 연락처 간격 */
+body:not(.video) .contact-heading ~ p {
+  margin-bottom: 14px;
+}
+
+.sidebar h1 {
+  cursor: pointer;
+}
+
+/* 왼쪽 아래 회전하는 돌 */
+.home-stone .sidebar-stone {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

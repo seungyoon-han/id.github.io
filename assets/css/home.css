@@ -1,0 +1,122 @@
+
+/* 기본 설정 */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background-color: #fff;
+  color: #111;
+  font-family: "Times New Roman", serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* 홈페이지 전체 */
+.home {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 500px;
+}
+
+/* 이름 */
+.home-title {
+  position: absolute;
+  top: 48px;
+  left: 60px;
+  margin: 0;
+  font-family: "Times New Roman", serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #aaa;
+}
+
+/* 중앙 이미지 및 메뉴 */
+.home-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 90vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 회전하는 돌 */
+.stone {
+  width: 250px;
+  max-width: 65vw;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* 메뉴 */
+.home-nav {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.home-nav a {
+  color: inherit;
+  text-decoration: none;
+  font-family: "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1;
+  transition: color 0.25s ease;
+}
+
+/* VIDEO 모드 */
+body.video-mode {
+  background-color: #000;
+  color: #fff;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body.video-mode .home-title {
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  color: #666;
+}
+
+body.video-mode .home-nav a {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 31px;
+  font-weight: 300;
+}
+
+/* 모바일 */
+@media (max-width: 680px) {
+  .home-title {
+    top: 30px;
+    left: 20px;
+    font-size: 28px;
+  }
+
+  .home-center {
+    width: 90vw;
+  }
+
+  .stone {
+    width: 300px;
+    max-width: 75vw;
+  }
+
+  .home-nav a {
+    font-size: 20px;
+  }
+}
