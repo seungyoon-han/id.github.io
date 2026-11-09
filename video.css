@@ -1,0 +1,137 @@
+
+@import url("./art.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+/* =================================
+   VIDEO 사이트 기본 설정
+================================= */
+
+body.video {
+  background: #000;
+  color: #fff;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+}
+
+/* 왼쪽 상단 이름 */
+body.video .sidebar h1 {
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+/* =================================
+   왼쪽 메뉴 - ART와 공통 정렬
+================================= */
+
+/* 메뉴 높이와 간격 */
+body.video .menu {
+  gap: 30px;
+}
+
+/* 메뉴 일반 상태 */
+body.video .menu button {
+  height: 42px;
+  flex: 0 0 42px;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+/* 선택된 메뉴 */
+body.video .menu button.active {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 선택되지 않은 메뉴에 마우스를 올렸을 때 */
+body.video .menu button:hover:not(.active) {
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+/* =================================
+   가운데 작품 목차
+================================= */
+
+/* 작품 카테고리 */
+body.video .work-group h2 {
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+/* 작품 제목 - 일반 상태 */
+body.video .work-item {
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+/* 작품 제목 - 선택 상태 */
+body.video .work-item.active {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 선택되지 않은 메뉴에 마우스를 올렸을 때 */
+body.video .menu button:hover:not(.active) {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* =================================
+   오른쪽 작품 설명
+================================= */
+
+body.video .text-section,
+body.video .text-section h2,
+body.video .text-section h3 {
+  font-weight: 300;
+}
+
+/* =================================
+   선 색상
+================================= */
+
+body.video .sidebar,
+body.video .layout.works-mode .work-list {
+  border-color: #999;
+}
+
+body.video .menu button.active::after,
+body.video .work-item.active::after {
+  border-color: #aaa;
+}
+
+/* =================================
+   ABOUT - CV 간격
+================================= */
+
+/* 이름과 학력 사이 */
+body.video .cv-block p:first-child {
+  margin-bottom: 48px;
+}
+
+/* 학력과 학교명 사이 */
+body.video .cv-block p:nth-child(2) {
+  margin-bottom: 12px;
+}
+
+/* 한국어 CV와 영어 CV 사이 */
+body.video .cv-block {
+  margin-bottom: 80px;
+}
+
+/* Contact 제목과 내용 사이 */
+body.video .contact-heading {
+  margin-top: 80px !important;
+  margin-bottom: 36px;
+}
+
+/* Contact 연락처 간격 */
+body.video .contact-heading ~ p {
+  margin-bottom: 14px;
+}
+
+.sidebar h1 {
+  cursor: pointer;
+}
