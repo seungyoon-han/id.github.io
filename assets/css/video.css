@@ -72,10 +72,10 @@ body.video .work-item.active {
   letter-spacing: 0.5px;
 }
 
-/* 선택되지 않은 작품에 마우스를 올렸을 때 */
-body.video .work-item:hover:not(.active) {
-  font-weight: 300;
-  letter-spacing: 0;
+/* 선택되지 않은 메뉴에 마우스를 올렸을 때 */
+body.video .menu button:hover:not(.active) {
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* =================================

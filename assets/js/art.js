@@ -169,9 +169,6 @@ function showSection(section) {
     });
 
     workList.appendChild(inner);
-
-    const first = workList.querySelector("[data-work]");
-    if (first) selectWork(first.dataset.work);
   }
 
   if (section === "statement") {
